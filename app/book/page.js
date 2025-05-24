@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Viewbookings from "./viewbookings";
 
 export default function Booking() {
   const [form, setForm] = useState({
@@ -17,6 +18,8 @@ export default function Booking() {
   });
 
   const [bookingId, setBookingId] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [name, setName] = useState(null);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -39,6 +42,8 @@ export default function Booking() {
         if (ok) {
           alert("Booking successful!");
           setBookingId(body.bookingId);
+          setEmail(form.email);
+          setName(form.name);
           setForm({
             name: "",
             email: "",
@@ -152,12 +157,7 @@ export default function Booking() {
         </button>
       </form>
 
-      {bookingId && (
-        <div className="mt-6 text-green-700 font-medium">
-          ✅ Your booking was successful. Booking ID:{" "}
-          <span className="font-mono">{bookingId}</span>
-        </div>
-      )}
+      {bookingId && <Viewbookings name={name} email={email} />}
     </div>
   );
 }

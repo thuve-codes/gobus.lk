@@ -4,7 +4,6 @@ import Link from "next/link";
 import { useParams } from "next/navigation";
 
 import React, { useState, useEffect } from "react";
-import Booking from "./book";
 
 export default function BusDetail() {
   const params = useParams();
@@ -48,7 +47,14 @@ export default function BusDetail() {
       <h2>Arrival Time: {bus.arrivalTime}</h2>
       <h2>Available Seats: {bus.availableSeats}</h2>
 
-      <Booking />
+      {/*<Booking />*/}
+
+      <Link
+        href="/book"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+      >
+        Book Now
+      </Link>
 
       <Link
         href="/"
