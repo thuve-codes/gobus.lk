@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
-import React, { useState, useEffect } from 'react';
-import Booking from './book';
+import React, { useState, useEffect } from "react";
+import Booking from "./book";
 
 export default function BusDetail() {
   const params = useParams();
@@ -17,17 +17,20 @@ export default function BusDetail() {
       fetch(`/api/bus?id=${id}`)
         .then((res) => res.json())
         .then((data) => setBus(data));
-    }else{}
+    } else {
+    }
   }, [id]); // Added id as dependency
-
-
 
   if (!bus) {
     return (
       <div className="flex flex-col justify-center items-center h-screen bg-gray-100 text-xl">
         <h1 className="text-2xl font-bold mb-4">Bus not Found</h1>
-        <Link href="/" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-          Go Back</Link>
+        <Link
+          href="/"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+        >
+          Go Back
+        </Link>
       </div>
     );
   }
@@ -45,10 +48,14 @@ export default function BusDetail() {
       <h2>Arrival Time: {bus.arrivalTime}</h2>
       <h2>Available Seats: {bus.availableSeats}</h2>
 
-      <Booking/>
-   
-      <Link href="/" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-        Go Back</Link>
+      <Booking />
+
+      <Link
+        href="/"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+      >
+        Go Back
+      </Link>
     </div>
   );
 }

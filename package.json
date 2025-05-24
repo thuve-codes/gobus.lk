@@ -6,7 +6,6 @@
     "start": "next start",
     "dev": "next dev --turbopack",
     "build": "next build",
-    
     "lint": "next lint"
   },
   "dependencies": {
