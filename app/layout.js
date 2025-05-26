@@ -1,5 +1,6 @@
-
-import './globals.css';
+import "./globals.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 
 export const metadata = {
   title: "GoBus.lk",
@@ -9,9 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-      >
+      <body>
+        <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
